@@ -17,15 +17,18 @@ build:
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
-  run:
-    - python >=3.7
-    - numpy
     - setuptools
+  run:
+    - python >={{ python_min }}
+    - numpy
+
 test:
-   imports:
-     - dijitso
+  requires:
+    - python {{ python_min }}
+  imports:
+    - dijitso
 
 about:
   home: http://www.fenicsproject.org
