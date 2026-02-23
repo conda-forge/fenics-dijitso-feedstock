@@ -7,9 +7,11 @@ package:
 source:
   url: https://bitbucket.org/fenics-project/dijitso/downloads/dijitso-{{ version }}.tar.gz
   sha256: eaa45eec4457f3f865d72a926b7cba86df089410e78de04cd89b15bb405e8fd9
+  patches:
+    - setuptools82.patch
 
 build:
-  number: 39
+  number: 40
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 

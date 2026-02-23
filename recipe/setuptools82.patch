@@ -1,0 +1,32 @@
+From 7a31c43f0106fa114bc198ba4c310bb20e9cee39 Mon Sep 17 00:00:00 2001
+From: Sebastian Blauth <sebastian.blauth@itwm.fraunhofer.de>
+Date: Mon, 23 Feb 2026 12:08:37 +0100
+Subject: [PATCH] replace pkg_resources with importlib.metadata
+
+---
+ dijitso/__init__.py | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/dijitso/__init__.py b/dijitso/__init__.py
+index c647f88..377cc58 100644
+--- a/dijitso/__init__.py
++++ b/dijitso/__init__.py
+@@ -16,13 +16,13 @@
+ # You should have received a copy of the GNU Lesser General Public License
+ # along with DIJITSO. If not, see <http://www.gnu.org/licenses/>.
+ 
+-from pkg_resources import get_distribution
++import importlib.metadata
+ 
+ """This is dijitso -- a lightweight distributed just-in-time shared
+ library builder."""
+ 
+ __author__ = "Martin Sandve Alnæs"
+-__version__ = get_distribution('fenics-dijitso').version
++__version__ = importlib.metadata.version("fenics-dijitso")
+ 
+ __all__ = ["validate_params", "jit", "extract_factory_function",
+            "set_log_level"]
+-- 
+2.47.3
+
